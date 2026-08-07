@@ -59,4 +59,68 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+// =============================================================================
+// PROGRAMMING FUNDAMENTALS — Assignment 6
+// =============================================================================
+//
+// TASK: Multiplication Table Generator
+//
+// =============================================================================
 
+const readlineSync = require("readline-sync");
+
+// Part A - Print the multiplication table for one number
+function printTable(number) {
+    console.log("\nMultiplication Table for " + number + ":");
+
+    for (let i = 1; i <= 12; i++) {
+        console.log(number + " x " + i + " = " + (number * i));
+    }
+}
+
+// Part B - Print multiplication tables from 1 to N
+function printTablesUpToN(n) {
+    if (n <= 0) {
+        console.log("Error: Number must be greater than 0.");
+        return;
+    }
+
+    for (let i = 1; i <= n; i++) {
+        printTable(i);
+
+        if (i < n) {
+            console.log("---------------------------");
+        }
+    }
+}
+
+// Main function
+function main() {
+
+    // ----------------------------
+    // Part A
+    // ----------------------------
+    let number = readlineSync.questionInt("Enter a number: ");
+
+    if (number <= 0) {
+        console.log("Error: Number must be greater than 0.");
+        return;
+    }
+
+    printTable(number);
+
+    // ----------------------------
+    // Part B
+    // ----------------------------
+    let n = readlineSync.questionInt("\nEnter N for tables from 1 to N: ");
+
+    if (n <= 0) {
+        console.log("Error: Number must be greater than 0.");
+        return;
+    }
+
+    printTablesUpToN(n);
+}
+
+// Run the program
+main();
